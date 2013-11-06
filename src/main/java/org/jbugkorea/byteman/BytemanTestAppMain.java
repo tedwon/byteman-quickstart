@@ -5,6 +5,8 @@ package org.jbugkorea.byteman;
  * <pre>
  * Run:
  * $ java -javaagent:/usr/local/byteman/lib/byteman.jar=script:/usr/local/byteman/rules/appmain.btm,listener:true,port:9091,address:127.0.0.1 org.jbugkorea.byteman.BytemanTestAppMain foo bar ted
+ * or
+ * $ bmjava.sh -l /usr/local/byteman/rules/appmain.btm org.jbugkorea.byteman.BytemanTestAppMain foo bar ted
  *
  * Expected:
  * entering main
