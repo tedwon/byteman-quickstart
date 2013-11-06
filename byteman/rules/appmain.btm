@@ -1,0 +1,14 @@
+RULE trace main entry
+CLASS org.jbugkorea.byteman.BytemanTestAppMain
+METHOD main
+AT ENTRY
+IF true
+DO traceln("entering main")
+ENDRULE
+RULE trace main exit
+CLASS BytemanTestAppMain
+METHOD main
+AT EXIT
+IF true
+DO traceln("exiting main")
+ENDRULE
