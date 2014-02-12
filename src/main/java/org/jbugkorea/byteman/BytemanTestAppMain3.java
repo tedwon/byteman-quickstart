@@ -19,7 +19,7 @@ package org.jbugkorea.byteman;
  * -Dorg.jboss.byteman.compileToBytecode -Dorg.jboss.byteman.verbose=true -Dorg.jboss.byteman.debug=true -Dorg.jboss.byteman.transform.all -javaagent:/usr/local/byteman/lib/byteman.jar=script:/usr/local/byteman/rules/periodic.btm,boot:/usr/local/byteman/lib/byteman.jar,boot:/usr/local/byteman/sample/lib/byteman-sample-2.1.4.1.jar,listener:true,port:9091,address:127.0.0.1
  * -Dorg.jboss.byteman.compileToBytecode -Dorg.jboss.byteman.verbose=true -Dorg.jboss.byteman.debug=true -Dorg.jboss.byteman.transform.all -javaagent:/usr/local/byteman/lib/byteman.jar=script:/usr/local/byteman/sample/scripts/PeriodicStats.btm,boot:/usr/local/byteman/lib/byteman.jar,boot:/usr/local/byteman/sample/lib/byteman-sample-2.1.4.1.jar,listener:true,port:9091,address:127.0.0.1
  *
- * -Dorg.jboss.byteman.compileToBytecode -Dorg.jboss.byteman.verbose=true -Dorg.jboss.byteman.debug=true -Dorg.jboss.byteman.transform.all -javaagent:/usr/local/byteman/lib/byteman.jar=script:/usr/local/byteman/rules/myhelper.btm,boot:/usr/local/byteman/lib/byteman.jar,boot:/usr/local/byteman/sample/lib/byteman-sample-2.1.4.1.jar,listener:true,port:9091,address:127.0.0.1
+ * -Dorg.jboss.byteman.compileToBytecode -Dorg.jboss.byteman.verbose=true -Dorg.jboss.byteman.debug=true -Dorg.jboss.byteman.transform.all -javaagent:/usr/local/byteman/lib/byteman.jar=script:/usr/local/byteman/rules/MonitorUsedMemory.btm,boot:/usr/local/byteman/lib/byteman.jar,boot:/usr/local/byteman/sample/lib/byteman-sample-2.1.4.1.jar,listener:true,port:9091,address:127.0.0.1
  *
  * </pre>
  *
