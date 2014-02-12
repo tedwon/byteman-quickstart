@@ -1,0 +1,16 @@
+HELPER org.jboss.byteman.sample.helper.MyPeriodicHelper
+
+RULE do periodic job
+CLASS org.jboss.byteman.sample.helper.MyPeriodicHelper
+METHOD doPeriodicJob()
+IF TRUE
+DO 
+traceln("Used Memory:" + ((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (1024*1024)) + "MB")
+ENDRULE
+
+RULE trigger script on some point
+CLASS org.jbugkorea.byteman.BytemanTestAppMain3
+METHOD trigger()
+IF TRUE
+DO traceln("Call trigger")
+ENDRULE

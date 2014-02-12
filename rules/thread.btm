@@ -4,3 +4,15 @@ METHOD start()
 IF true
 DO traceln("*** start for thread " + $0.getName())
 ENDRULE
+RULE trace thread run
+CLASS java.lang.Thread
+METHOD run()
+IF true
+DO traceln("*** run for thread " + $0.getName())
+ENDRULE
+RULE trace thread join
+CLASS java.lang.Thread
+METHOD join()
+IF true
+DO traceln("*** join for thread " + $0.getName())
+ENDRULE
