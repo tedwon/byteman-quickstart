@@ -5,7 +5,7 @@ CLASS org.jboss.byteman.sample.helper.MyPeriodicHelper
 METHOD doPeriodicJob()
 IF TRUE
 DO 
-traceln("JVM Used Memory:" + ((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (1024*1024)) + "MB")
+traceln("[" + System.currentTimeMillis() + "]JVM Used Memory:" + ((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (1024*1024)) + "MB")
 ENDRULE
 
 RULE trigger script on some point
