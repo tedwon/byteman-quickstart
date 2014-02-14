@@ -1,0 +1,6 @@
+RULE monitor call stack trace
+CLASS org.jbugkorea.byteman.BytemanTestAppMain3
+METHOD trigger()
+IF TRUE
+DO traceStack("*** Called trigger() in thread " + Thread.currentThread().getName() + "\n", 10)
+ENDRULE
