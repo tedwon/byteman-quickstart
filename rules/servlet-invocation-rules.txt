@@ -1,0 +1,32 @@
+RULE Count All Successful Servlet Invocations
+CLASS javax.servlet.http.HttpServlet
+METHOD service(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+AT EXIT
+IF TRUE
+DO createCounter("servlet.allInvocations", 0),
+   incrementCounter("servlet.allInvocations"),
+   traceln("*** ServletTrace: allInvocations=[" + readCounter("servlet.allInvocations") + "]")
+ENDRULE
+
+RULE Start Trace Servlet Invocation
+CLASS javax.servlet.http.HttpServlet
+METHOD service(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+AT ENTRY
+BIND servletPath = $1.getServletPath(),
+     contextPath = $1.getContextPath()
+IF TRUE
+DO createCounter("servlet.trace-" + contextPath + servletPath, 0),
+   resetTimer("servlet.trace-" + contextPath + servletPath),
+   traceln("*** ServletTrace: startInvocation=[" + contextPath + servletPath + "]")
+ENDRULE
+
+RULE End Trace Servlet Invocation
+CLASS javax.servlet.http.HttpServlet
+METHOD service(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+AT EXIT
+BIND servletPath = $1.getServletPath(),
+     contextPath = $1.getContextPath()
+IF TRUE
+DO incrementCounter("servlet.trace-" + contextPath + servletPath),
+   traceln("*** ServletTrace: endInvocation=[" + contextPath + servletPath + "]" + ", count=[" + readCounter("servlet.trace-" + contextPath + servletPath) + "], elapsedTime=[" + getElapsedTimeFromTimer("servlet.trace-" + contextPath + servletPath) + "]")
+ENDRULE

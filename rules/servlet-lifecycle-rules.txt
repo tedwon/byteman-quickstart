@@ -1,0 +1,19 @@
+RULE Increment Initialized Servlets
+CLASS javax.servlet.http.HttpServlet
+METHOD init
+AT EXIT
+IF TRUE
+DO createCounter("servlet.initCount", 0),
+   incrementCounter("servlet.initCount"),
+   traceln("*** ServletTrace: +initCount=[" + readCounter("servlet.initCount") + "]")
+ENDRULE
+
+RULE Decrement Initialized Servlets
+CLASS javax.servlet.http.HttpServlet
+METHOD destroy
+AT EXIT
+IF TRUE
+DO createCounter("servlet.initCount", 0),
+   decrementCounter("servlet.initCount"),
+   traceln("*** ServletTrace: -initCount=[" + readCounter("servlet.initCount") + "]")
+ENDRULE
