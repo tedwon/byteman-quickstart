@@ -1,0 +1,7 @@
+RULE my test
+CLASS org.jbugkorea.byteman.MyTest
+METHOD test(String, int, String, boolean)
+AT ENTRY
+IF TRUE
+DO System.out.println("my debugging " + $0.a + ", " + $1 + ", " + $2 + ", " + $3 + ", " + $4)
+ENDRULE
