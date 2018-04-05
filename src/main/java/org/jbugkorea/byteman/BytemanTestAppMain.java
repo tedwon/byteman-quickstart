@@ -24,6 +24,9 @@ package org.jbugkorea.byteman;
  * -Dorg.jboss.byteman.transform.all -javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/build/byteman/byteman-quickstart/rules/scripts/ClassLoadMonitor.btm,sys:/Users/tedwon/byteman/lib/byteman.jar
  * -Dorg.jboss.byteman.transform.all -javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/build/byteman/byteman-quickstart/rules/scripts/ClassLoadMonitor.btm,sys:/Users/tedwon/byteman/lib/byteman.jar,boot:/Users/tedwon/byteman/lib/byteman.jar
  *
+ * export BYTEMAN_OPTS="-Dorg.jboss.byteman.verbose=true -Dorg.jboss.byteman.debug=true -Dorg.jboss.byteman.transform.all \
+ -javaagent:$BYTEMAN_HOME/lib/byteman.jar=script:/Users/tedwon/rh/build/byteman/byteman-quickstart/rules/scripts/ThreadMonitorHistory.btm,boot:$BYTEMAN_HOME/lib/byteman.jar,boot:/Users/tedwon/rh/build/byteman/byteman-quickstart/rules/lib/byteman-sample.jar,listener:true,port:9551,address:127.0.0.1"
+ *
  *
  *
  * @author <a href=mailto:iamtedwon@gmail.com">Ted Won</a>
