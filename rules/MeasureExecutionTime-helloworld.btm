@@ -1,0 +1,21 @@
+RULE Start Method Trace
+CLASS org.jboss.as.quickstarts.helloworld.HelloWorldServlet
+METHOD doGet
+AT ENTRY
+BIND uniqueName = "HelloWorld"
+IF TRUE
+DO createCounter("method.trace-" + uniqueName, 0),
+   resetTimer("method.trace-" + uniqueName),
+   traceln("*** MethodTrace: startInvocation=[" + uniqueName + "]")
+ENDRULE
+
+RULE End Method Trace
+CLASS org.jboss.as.quickstarts.helloworld.HelloWorldServlet
+METHOD doGet
+AT EXIT
+BIND uniqueName = "HelloWorld"
+IF TRUE
+DO incrementCounter("method.trace-" + uniqueName),
+   traceln("*** MethodTrace: endInvocation=[" + uniqueName + "]" + ", count=[" + readCounter("method.trace-" + uniqueName) + "], elapsedTime=[" + getElapsedTimeFromTimer("method.trace-" + uniqueName) + "]"),
+   traceln("exiting: " + Class.forName("org.apache.xerces.parsers.XMLParser").getResource("/" + Class.forName("org.apache.xerces.parsers.XMLParser").getCanonicalName().replace(".", "/") + ".class"))
+ENDRULE

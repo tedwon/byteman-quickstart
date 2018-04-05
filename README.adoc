@@ -1,0 +1,14 @@
+
+* not working yet
+----
+bmjava.sh -l /Users/tedwon/build/byteman/byteman-quickstart/rules/appmain.btm org.jbugkorea.byteman.BytemanTestAppMain foo bar ted
+
+java -javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/build/byteman/byteman-quickstart/rules/appmain.btm,listener:true,port:9091,address:127.0.0.1 org.jbugkorea.byteman.BytemanTestAppMain foo bar ted
+
+java -javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/build/byteman/byteman-quickstart/rules/appmain.btm org.jbugkorea.byteman.BytemanTestAppMain foo bar ted
+----
+
+* should run in idea first
+----
+-javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/build/byteman/byteman-quickstart/rules/appmain.btm
+----

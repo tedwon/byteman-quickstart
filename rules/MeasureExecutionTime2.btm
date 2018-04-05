@@ -1,0 +1,20 @@
+RULE Start Trace Method Invocation
+CLASS org.jbugkorea.byteman.BytemanTestAppMain
+METHOD main
+AT ENTRY
+BIND uniqueName = "MyTest"
+IF TRUE
+DO createCounter("method.trace-" + uniqueName, 0),
+   resetTimer("method.trace-" + uniqueName),
+   traceln("*** MethodTrace: startInvocation=[" + uniqueName + "]")
+ENDRULE
+
+RULE End Trace Method Invocation
+CLASS org.jbugkorea.byteman.BytemanTestAppMain
+METHOD main
+AT EXIT
+BIND uniqueName = "MyTest"
+IF TRUE
+DO incrementCounter("method.trace-" + uniqueName),
+   traceln("*** MethodTrace: endInvocation=[" + uniqueName + "]" + ", count=[" + readCounter("method.trace-" + uniqueName) + "], elapsedTime=[" + getElapsedTimeFromTimer("method.trace-" + uniqueName) + "]")
+ENDRULE

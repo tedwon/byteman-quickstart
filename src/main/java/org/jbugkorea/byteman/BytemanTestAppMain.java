@@ -16,15 +16,35 @@ package org.jbugkorea.byteman;
  * exiting main
  * </pre>
  *
+ *
+ * -javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/build/byteman/byteman-quickstart/rules/appmain.btm
+ * <p/>
+ * -javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/build/byteman/byteman-quickstart/rules/MeasureExecutionTime2.btm
+ * -Dorg.jboss.byteman.transform.all -javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/build/byteman/byteman-quickstart/rules/scripts/ClassLoadMonitor.btm,boot:/Users/tedwon/byteman/lib/byteman.jar
+ * -Dorg.jboss.byteman.transform.all -javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/build/byteman/byteman-quickstart/rules/scripts/ClassLoadMonitor.btm,sys:/Users/tedwon/byteman/lib/byteman.jar
+ * -Dorg.jboss.byteman.transform.all -javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/build/byteman/byteman-quickstart/rules/scripts/ClassLoadMonitor.btm,sys:/Users/tedwon/byteman/lib/byteman.jar,boot:/Users/tedwon/byteman/lib/byteman.jar
+ *
+ *
+ *
  * @author <a href=mailto:iamtedwon@gmail.com">Ted Won</a>
  * @version 0.1.0
  * @since 0.1.0
  */
 public class BytemanTestAppMain {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     for (int i = 0; i < args.length; i++) {
       System.out.println(args[i]);
     }
+
+//    "aaa".equals("bbb");
+
+//    ClassLoader loader = BytemanTestAppMain.class.getClassLoader();
+//    System.out.println(loader.getResource("org/jbugkorea/byteman/BytemanTestAppMain.class"));
+//    Thread.currentThread().getContextClassLoader().getResource("org/jbugkorea/byteman/BytemanTestAppMain.class");
+
+    System.out.println(Class.forName("java.lang.String").getResource("/" + Class.forName("java.lang.String").getCanonicalName().replace(".", "/") + ".class"));
+
+
   }
 }
