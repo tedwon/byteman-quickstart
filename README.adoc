@@ -1,3 +1,13 @@
+-Dorg.jboss.byteman.transform.all=true -Dorg.jboss.byteman.verbose=true -Dorg.jboss.byteman.debug=true -javaagent:$BYTEMAN_HOME/lib/byteman.jar=script:/Users/tedwon/byteman/sample/scripts/ClassLoadMonitor.btm,boot:$BYTEMAN_HOME/lib/byteman.jar
+
+-Dorg.jboss.byteman.transform.all=true -Dorg.jboss.byteman.verbose=true -Dorg.jboss.byteman.debug=true -javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/byteman/sample/scripts/ClassLoadMonitor.btm,boot:/Users/tedwon/byteman/lib/byteman.jar
+
+
+-Dorg.jboss.byteman.transform.all=true -Dorg.jboss.byteman.verbose=true -Dorg.jboss.byteman.debug=true -javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/Downloads/struts/commons-beanutils-1.8.2-reproducer/src/rules/myrule.btm,boot:/Users/tedwon/byteman/lib/byteman.jar
+
+
+
+-Dorg.jboss.byteman.transform.all=true -Dorg.jboss.byteman.verbose=true -Dorg.jboss.byteman.debug=true -javaagent:/Users/tedwon/byteman/lib/byteman.jar=script:/Users/tedwon/build/byteman/byteman-quickstart/rules/mytest2.btm,boot:/Users/tedwon/byteman/lib/byteman.jar
 
 * not working yet
 ----
